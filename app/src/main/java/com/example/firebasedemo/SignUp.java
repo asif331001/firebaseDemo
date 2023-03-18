@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 
 public class SignUp extends AppCompatActivity {
 
@@ -67,28 +68,28 @@ public class SignUp extends AppCompatActivity {
         String password = signUpPasswordEditText.getText().toString().trim();
 
         //check email empty or not
-        if (email.isEmpty()){
+        if (email.isEmpty()) {
             signUpEmailEditText.setError("Enter an email address");
             signUpEmailEditText.requestFocus();
             return;
         }
 
         //check email validity
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             signUpEmailEditText.setError("Enter a valid email address");
             signUpEmailEditText.requestFocus();
             return;
         }
 
         //check password empty or not
-        if (password.isEmpty()){
+        if (password.isEmpty()) {
             signUpPasswordEditText.setError("Enter a password");
             signUpPasswordEditText.requestFocus();
             return;
         }
 
         //check password validity
-        if (password.length()<6){
+        if (password.length() < 6) {
             signUpPasswordEditText.setError("Minimum length of password should be 6");
             signUpPasswordEditText.requestFocus();
             return;
@@ -100,12 +101,17 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 signUpProgressbar.setVisibility(View.GONE);
-                if (task.isSuccessful()){
+                if (task.isSuccessful()) {
 
-                    Toast.makeText(getApplicationContext(),"Sign Up Successful", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(getApplicationContext(),"Error", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Sign Up Successful", Toast.LENGTH_SHORT).show();
+                } else {
+                    if (task.getException() instanceof FirebaseAuthUserCollisionException) {
+                        signUpEmailEditText.setError("This email address is not available");
+                        signUpEmailEditText.requestFocus();
+                        return;
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Sign Up is Not Successful", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
