@@ -5,17 +5,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@drawable/game_bg"
     tools:context=".MainActivity">
 
-
-
-    <TextView
-        android:textAlignment="center"
+    <EditText
+        android:padding="10dp"
+        android:id="@+id/nameEditTextId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello Firebase Authentication!"
-        android:textSize="40dp"
-        />
+        android:layout_marginTop="15dp"
+        android:hint="Enter Your Name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <EditText
+        android:padding="10dp"
+        android:id="@+id/ageEditTextId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:hint="Enter Your Age"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <Button
+        android:padding="10dp"
+        android:id="@+id/saveDataButtonId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Save Data" />
+
+  <Button
+        android:padding="10dp"
+        android:id="@+id/loadDataButtonId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Load Data" />
+
 
 </LinearLayout>
