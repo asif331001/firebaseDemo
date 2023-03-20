@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:weightSum="3"
+    android:background="@drawable/image_bg"
+    tools:context=".ImageActivity">
+
+    <Button
+        android:id="@+id/chooseImageButtonId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.25"
+        android:backgroundTint="#1D0060"
+        android:text="Choose Image"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/imageNameEditTextId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.25"
+        android:hint="Enter a name for Image"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/imageViewId"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="2" />
+
+    <ProgressBar
+        android:id="@+id/imageLoadProgressbarId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="0.16"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/saveImageButtonId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.17"
+        android:backgroundTint="#1D0060"
+        android:text="Save Image" />
+
+    <Button
+        android:id="@+id/displayImageButtonId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.17"
+        android:backgroundTint="#1D0060"
+        android:text="Display Image" />
+
+
+</LinearLayout>

@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button saveDataButton, loadDataButton;
+    private Button saveDataButton, loadDataButton, nextPageButton;
     private EditText nameEditText, ageEditText;
     DatabaseReference databaseReference;
 
@@ -35,9 +35,18 @@ public class MainActivity extends AppCompatActivity {
 
         saveDataButton = findViewById(R.id.saveDataButtonId);
         loadDataButton = findViewById(R.id.loadDataButtonId);
+        nextPageButton = findViewById(R.id.nextPageButtonId);
         nameEditText = findViewById(R.id.nameEditTextId);
         ageEditText = findViewById(R.id.ageEditTextId);
         mAuth = FirebaseAuth.getInstance();
+
+        nextPageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,ImageActivity.class);
+                startActivity(intent);
+            }
+        });
 
         loadDataButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -45,4 +45,15 @@
         android:text="Load Data" />
 
 
+    <Button
+        android:padding="20dp"
+        android:textSize="20sp"
+        android:id="@+id/nextPageButtonId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/black"
+        android:text="Next Page" />
+
+
 </LinearLayout>
